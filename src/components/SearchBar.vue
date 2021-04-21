@@ -52,7 +52,7 @@
           
         },
         fetchData() {
-        this.$http.get('https://www.food2fork.com/api/search?key=1a3995484c34fb9593dc26d1b3cdb0b0&q='+this.searchData+'&page=1')
+        this.$http.get('https://recipesapi.herokuapp.com/api/v2/recipes?q='+this.searchData+'&page=1')
                     .then(response =>{
                     this.searcList = response.data;
                     // console.log(this.searcList);

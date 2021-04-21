@@ -5,8 +5,8 @@
         v-for="recipe in datas.recipes.slice(from, to)"
         class="list-group-item list-group-item-action" 
         v-if="datas.recipes.length != 0"
-        @click="sendReceipId(recipe.recipe_id)">
-        <img :src="recipe.image_url" class="mr-3"  />
+        @click="sendReceipId(recipe.id)">
+        <img :src="recipe.imageUrl" class="mr-3"  />
         <div class="title-recipe">{{recipe.title}}</div>
         <p class="publisher">{{recipe.publisher}}</p>
     </a>

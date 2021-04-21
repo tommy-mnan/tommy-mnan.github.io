@@ -5,7 +5,7 @@
             <li v-for="item in shoppingList">{{item}}</li>
             
         </div>
-        <div class="about">© by Tommy Meinando Powered by <br> <a href="https://www.food2fork.com" target="_blank">Food2Fork.com.</a></div>
+        <div class="about">© by Tommy Meinando Powered by <br> <a href="https://recipesapi.herokuapp.com/" target="_blank">herokuapp.com.</a></div>
     </div>
 </template>
 

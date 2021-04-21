@@ -2,7 +2,7 @@
 
   <div  v-if="recipe.length != 0" class="small-con">
     <figure >
-      <img :src="recipe.image_url" class="mainImage"/>
+      <img :src="recipe.imageUrl" class="mainImage"/>
       <h1 class="recipe-title"><span>{{recipe.title}}</span></h1>
     </figure>
     <div class="recipe-ingredient">
@@ -37,8 +37,7 @@ export default {
     
     methods:{
         fetchData() {
-        console.log("masuk" + this.recipeId);
-            this.$http.get('https://www.food2fork.com/api/get?key=1a3995484c34fb9593dc26d1b3cdb0b0&rId='+this.recipeId)
+            this.$http.get('https://recipesapi.herokuapp.com/api/v2/recipes/'+this.recipeId)
                     .then(response =>{
                     this.recipe = response.data.recipe;
                     this.checkRecipe();
