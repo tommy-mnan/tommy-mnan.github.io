@@ -2,7 +2,7 @@
 
   <div  v-if="recipe.length != 0" class="small-con">
     <figure >
-      <img :src="recipe.imageUrl" class="mainImage"/>
+      <img :src="recipe.image_url" class="mainImage"/>
       <h1 class="recipe-title"><span>{{recipe.title}}</span></h1>
     </figure>
     <div class="recipe-ingredient">
@@ -37,7 +37,7 @@ export default {
     
     methods:{
         fetchData() {
-            this.$http.get('https://recipesapi.herokuapp.com/api/v2/recipes/'+this.recipeId)
+            this.$http.get('https://forkify-api.herokuapp.com/api/get?rId='+this.recipeId)
                     .then(response =>{
                     this.recipe = response.data.recipe;
                     this.checkRecipe();

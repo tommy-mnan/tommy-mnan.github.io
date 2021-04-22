@@ -28,11 +28,12 @@
     <!--/.Navbar-->
 </template>
 
+
 <script>
     export default{
         data() {
             return{
-                searchData: '',
+                searchData: 'chicken',
                 searcList: [],
                 showUp: '',
                 hide: ''
@@ -52,14 +53,14 @@
           
         },
         fetchData() {
-        this.$http.get('https://recipesapi.herokuapp.com/api/v2/recipes?q='+this.searchData+'&page=1')
+        this.$http.get('https://forkify-api.herokuapp.com/api/search?q='+this.searchData+'&page=1')
                     .then(response =>{
                     this.searcList = response.data;
-                    // console.log(this.searcList);
                     this.$emit("searchList",this.searcList);
                     this.searchData = '';
                 }, function(error){
-                    console.log(error.statusText);
+                   alert("Data Not Found");
+                   this.searchData="";
                 });
         },
         handleResize(){
@@ -68,8 +69,10 @@
         }
     },
     created(){
+      
       window.addEventListener('resize', this.handleResize)
       this.handleResize();
+      this.fetchData();
     } 
 
     }
